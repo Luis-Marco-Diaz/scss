@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS Proyect</title>
+    <link rel="stylesheet" type="text/css" href="/public/scss/styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar grid--container">
+          <a class="navbar__logo" href="#"
+            ><i class="bx bxs-rocket"></i> Marco Díaz</a>
+            <div id="nav" class="navbar__menu">
+            <a href="#close"><i class='bx bx-x  btn__close navbar__icon'></i></a>
+              <ul class="navbar__list">
+              <li class="navbar__item">
+                <a class="navbar__link" href="#home">Inicio</a>
+              </li>
+              <li class="navbar__item">
+                <a class="navbar__link" href="#about">Acerca de Mí</a>
+              </li>
+              <li class="navbar__item">
+                <a class="navbar__link" href="#projects">Portafolio</a>
+              </li>
+              <li class="navbar__item">
+                <a class="navbar__link" href="#foo">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <a href="#nav"><i class="bx bx-menu btn__open navbar__icon"></i></a>
+        </nav>
+      </header>
+      
+    <section id="home" class="home">
+        <div class="home__container">
+          </div>
+        </div>
+  
+        <div class="home__info">
+          <h1 class="home__title">Soy Marco Díaz<br>FrontEnd Developer &<br>Funnel Strategist</h1>
+          <p class="home__description">Soy desarrollador web, apasionado por la tecnología y la mercadotecnia.</p>
+          <button id="color" onclick="Mycolor()" >Cambaiar color de fondo del párrafo</button>
+          <p id="cambiar" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam minus natus numquam inventore odit, eos enim beatae facere commodi reiciendis, quae iure magni odio. Quas, necessitatibus quis. Distinctio, enim minus</p>
+        </div>
+      </section>
+
+      <section id="CV" class="cv" >
+        <h1>Mi CV</h1>
+        <a class="btn btn--primary" type="button" href="https://drive.google.com/file/d/1eH2GIKsGD5EhKyjr0c1lqhNHluTz6Y-7/view?usp=sharing">Descargar CV</a>
+      </section>
+
+      <footer id="foo" class="footer section">
+        <div class="footer__container grid--container">
+          <div class="footer__info">
+            <h3 class="footer__title">Marco Díaz</h3>
+            <p class="footer__description">
+              Web developement / Digital Marketing / Graphic Design / Product Desing
+            </p>
+          </div>
+    
+          <div class="footer__social">
+            <h3 class="footer__title">Redes Sociales</h3>
+    
+            <ul class="footer__social-list">
+              <li class="footer__social-item">
+                <a class="footer__social-link" href="#"
+                  ><i class="bx bxl-facebook"></i
+                ></a>
+              </li>
+    
+              <li class="footer__social-item">
+                <a class="footer__social-link" href="#"
+                  ><i class="bx bxl-instagram"></i
+                ></a>
+              </li>
+    
+              <li class="footer__social-item">
+                <a class="footer__social-link" href="#"
+                  ><i class="bx bxl-twitter"></i
+                ></a>
+              </li>
+    
+              <li class="footer__social-item">
+                <a class="footer__social-link" href="#"
+                  ><i class="bx bxl-linkedin"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+        <p class="footer__copy">&copy; 2024, Todos los derechos reservados</p>
+      </footer>
+    
+<script>
+function Mycolor() {
+var element = document.getElementById("cambiar");
+element.style.backgroundColor='#900';
+}
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jsPDF/dist/jspdf.min.js"></script>
+<script>
+var doc = new jsPDF();
+var elementHTML = $('#CV').html();
+var specialElementHandlers = {
+    '#elementH': function (element, renderer) {
+        return true;
+    }
+};
+doc.fromHTML(elementHTML, 15, 15, {
+    'width': 170,
+    'elementHandlers': specialElementHandlers
+});
+
+// Save the PDF
+doc.save('sample-document.pdf');
+</script>
+</body>
+</html>
